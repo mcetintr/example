@@ -1,0 +1,23 @@
+<div class="bg-primary text-white m-2 p-2">
+    There are {{ model.getProducts().length }} products in the repository.
+</div>
+
+<div *ngFor="let product of model.getProducts()">
+    <div class="card">
+        <div class="m-2 p-2" [ngClass]="getClassMap(product.id)">
+            <span [ngStyle]="getStyles(product.id)">ID : {{ product.id}}</span> {{ product.name }}
+        </div>
+    </div>
+
+</div>
+
+<button class="btn btn-primary" [class.disabled]="disabled">Save</button>
+
+<!--
+<div>
+    <h2>{{ product.name }}</h2>
+    <h2 [textContent] = "product.name"></h2>
+    <img src="assets/img/{{ product.imageUrl }}" alt="" class="m-2">
+    <img [src]="'assets/img/' + product.imageUrl" alt="" class="m-2">
+</div>
+-->
