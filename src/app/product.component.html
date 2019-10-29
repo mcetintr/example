@@ -1,6 +1,52 @@
-<div class="bg-primary text-white p-1">
+
+<input type="text" appInputEmail>
+
+<ng-container *ngIf="model.getProducts().length>0; then productList; else noProducts"></ng-container>
+
+
+
+<ng-template #productList>
+    <div class="bg-primary text-white m-2 p-1">
+        There are {{ model.getProducts().length }} products in the repository.
+    </div>
+</ng-template>
+
+<ng-template #noProducts>
+    <div  class="bg-primary text-white m-2 p-1">
+        There are no products in the repository.
+    </div>
+</ng-template>
+
+<div [hidden]="model.getProducts().length == 0" class="bg-primary text-white m-2 p-1">
     There are {{ model.getProducts().length }} products in the repository.
 </div>
+<div [hidden]="model.getProducts().length > 0"  class="bg-primary text-white m-2 p-1">
+    There are no products in the repository.
+</div>
+
+<span [ngSwitch]="model.getProducts().length">
+<p *ngSwitchCase="5">
+5 ürün var.
+</p>
+<p *ngSwitchCase="0">
+Hiç ürün yok
+</p>
+<p *ngSwitchDefault>
+çok ürün var.
+</p>
+</span>
+
+<ul class="list-group m-5">
+    <li class="list-group-item" *ngFor="let product of model.getProducts(); let i=index;let first=first;let last=last;let even=even;let odd=odd;">
+        {{i+1}} - {{product.name}}
+        <span class="badge badge-primary" *ngIf="first">İlk Eleman</span>
+        <span class="badge badge-success" *ngIf="last">Son Eleman</span>
+        <span class="badge badge-danger" *ngIf="odd">Çift Eleman</span>
+        <span class="badge badge-warning" *ngIf="even">Tek Eleman</span>
+
+    </li>
+</ul>
+
 <!--
     
 <div *ngFor="let product of model.getProducts()">
@@ -29,7 +75,7 @@
     </p>
 </div>
 
--->
+
 <div class="card p-1">
     <p>{{ title }}</p>
     <p>{{ title | lowercase }}</p>
@@ -57,7 +103,7 @@
     <p>{{ text }}</p>
     <p>{{ text | summary : 15 }}</p>
 </div>
-<!--
+
 <div>
     <h2>{{ product.name }}</h2>
     <h2 [textContent] = "product.name"></h2>
