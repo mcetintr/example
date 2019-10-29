@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product.component';
+import { SummaryPipe } from './summary.pipe';
 
 
 @NgModule({
   declarations: [
-    ProductComponent
+    ProductComponent,
+    SummaryPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
     
   ],
   providers: [],

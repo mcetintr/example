@@ -12,7 +12,7 @@ import { Product } from './product.model';
 export class ProductComponent {
     model: ProductRepository = new ProductRepository();
     product: Product = this.model.getProductById(1);
-    disabled = true;
+    disabled = false;
 
     getClasses(id: number): string {
         let product: Product = this.model.getProductById(id);
@@ -37,9 +37,39 @@ export class ProductComponent {
         let product: Product = this.model.getProductById(id);
 
         return {
-            color : product.price <= 1000 ? "green" : "red",
-            fontSize : "25px"
+            color: product.price <= 1000 ? "green" : "red",
+            fontSize: "25px"
         }
     }
 
+    onSubmit($event) {
+        $event.stopPropagation();
+        console.log("button was clicked");
+        console.log($event);
+
+    }
+
+    onDivClicked() {
+        console.log("div was clicked");
+    }
+    onKeyUp($event) {
+        if ($event.keyCode === 13) {
+            console.log('Enter was pressed');
+        }
+    }
+    onKeyUp2() {
+        console.log('Enter was pressed');
+    }
+    email: string = "mcetintr@gmail.com";
+
+    onKeyUp3(){
+        console.log(this.email);
+    }
+
+    today : number = Date.now();
+    title : string = 'Angular kursu';
+    amount : number = 123456789;
+    price : number = 395.3758;
+    complated : number = 0.026; 
+    text : string = "En popüler front-end framework'ü Angular 8' i sıfırdan en ileri seviye kadar öğrenin.";
 }

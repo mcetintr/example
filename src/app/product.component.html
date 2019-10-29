@@ -1,18 +1,62 @@
-<div class="bg-primary text-white m-2 p-2">
+<div class="bg-primary text-white p-1">
     There are {{ model.getProducts().length }} products in the repository.
 </div>
-
+<!--
+    
 <div *ngFor="let product of model.getProducts()">
     <div class="card">
-        <div class="m-2 p-2" [ngClass]="getClassMap(product.id)">
+        <div class="m-1 p-1" [ngClass]="getClassMap(product.id)">
             <span [ngStyle]="getStyles(product.id)">ID : {{ product.id}}</span> {{ product.name }}
         </div>
     </div>
 
 </div>
 
-<button class="btn btn-primary" [class.disabled]="disabled">Save</button>
+<div class="card p-1" style="background-color: red;" (click)="onDivClicked()">
+    <button name="btn1" class="btn btn-primary p-1" [class.disabled]="disabled" style="width: 100px;"
+        (click)="onSubmit($event)">Submit 1</button>
+    <button name="btn2" class="btn btn-primary p-1" [class.disabled]="disabled" style="width: 100px;"
+        (click)="onSubmit($event)">Submit 2</button>
+</div>
 
+<div class="card">
+    <p>
+        <input type="text" (keyup)="onKeyUp($event)" class="m-2 pl-1" style="width: 100px;">
+        <input type="text" (keyup.enter)="onKeyUp2()" class="m-2 pl-1" style="width: 100px;">
+        <input type="text" [(ngModel)]="email" (keyup.enter)="onKeyUp3()" class="m-2 pl-1" style="width: 150px;">
+        <br>
+        Email : {{ email }}
+    </p>
+</div>
+
+-->
+<div class="card p-1">
+    <p>{{ title }}</p>
+    <p>{{ title | lowercase }}</p>
+    <p>{{ title | uppercase }}</p>
+    <p>{{ title | titlecase}}</p>
+</div>
+<div class="card p-1">
+    <p>{{ today }}</p>
+    <p>{{ today | date : 'd.M.yyyy' }}</p>
+</div>
+<div class="card p-1">
+    <p>{{ amount }}</p>
+    <p>{{ amount | number }}</p>
+</div>
+<div class="card p-1">
+    <p>{{ price }}</p>
+    <p>{{ price | number : '1.2-2' }}</p>
+    <p>{{ price | currency : 'EUR' }}</p>
+</div>
+<div class="card p-1">
+    <p>{{ complated }}</p>
+    <p>{{ complated | percent : '1.2-2' }}</p>
+</div>
+<div class="card p-1">
+    <p>{{ text }}</p>
+    <p>{{ text | summary : 15 }}</p>
+</div>
 <!--
 <div>
     <h2>{{ product.name }}</h2>
