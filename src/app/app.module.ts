@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './product.component';
 import { SummaryPipe } from './summary.pipe';
 import { InputEmailDirective } from './input-email.directive';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
     SummaryPipe,
-    InputEmailDirective
+    InputEmailDirective,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,
