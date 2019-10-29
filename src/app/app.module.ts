@@ -5,6 +5,7 @@ import { ProductComponent } from './product.component';
 import { SummaryPipe } from './summary.pipe';
 import { InputEmailDirective } from './input-email.directive';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
     ProductComponent,
     SummaryPipe,
     InputEmailDirective,
-    AdminProductsComponent
+    AdminProductsComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
