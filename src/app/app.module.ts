@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './product.component';
 import { SummaryPipe } from './summary.pipe';
 import { InputEmailDirective } from './input-email.directive';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductReactiveFormsComponent } from './product-reactive-forms/product-reactive-forms.component';
 
 
 @NgModule({
@@ -14,11 +15,13 @@ import { ProductFormComponent } from './product-form/product-form.component';
     SummaryPipe,
     InputEmailDirective,
     AdminProductsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
