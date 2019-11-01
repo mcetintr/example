@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './product.component';
 import { SummaryPipe } from './summary.pipe';
@@ -8,6 +9,7 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductReactiveFormsComponent } from './product-reactive-forms/product-reactive-forms.component';
 import { ProductServiceComponent } from './product-service/product-service.component';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { ProductServiceComponent } from './product-service/product-service.compo
     AdminProductsComponent,
     ProductFormComponent,
     ProductReactiveFormsComponent,
-    ProductServiceComponent
+    ProductServiceComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [ProductComponent]
